@@ -1,0 +1,18 @@
+.renewal_table{
+    text-align: center;
+    border-radius: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-shadow: 0px 0.5px 3px 0px rgb(187, 185, 185);
+    padding-bottom: 2%;
+}
+.renewal_table table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.renewal_table table tr{
+    border-bottom: 1px solid rgb(243, 238, 238);
+}
+.renewal_table table th, .renewal_table table td{
+    padding: 10px;  
+}

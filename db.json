@@ -1,0 +1,23 @@
+{
+  "customers": [
+    {
+      "personalDetails": {
+        "customerName": "Kumar",
+        "gender": "male",
+        "dateOfBirth": "2009-01-28",
+        "email": "kumar1902002@gmail.com",
+        "phone": "9361672063"
+      },
+      "address": {
+        "street": "sipcot",
+        "city": "chengalpattu",
+        "state": "Tamilnadu",
+        "pincode": "603103"
+      },
+      "policies": [],
+      "customerID": "CUST-1769665455938-915",
+      "accountCreatedOn": "2026-01-29",
+      "id": 1
+    }
+  ]
+}

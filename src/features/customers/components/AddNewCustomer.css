@@ -1,0 +1,105 @@
+/* Main form container */
+.customerDetails {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+/* Section headings */
+.customerDetails h3 {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #760687;
+  padding-bottom: 5px;
+}
+
+/* Fieldset styling */
+.customerDetails fieldset {
+  border: none;
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+/* Labels */
+.customerDetails label {
+  /* display: block; */
+  margin-bottom: 6px;
+  color: #555;
+}
+
+/* Input fields */
+.customerDetails input[type="text"],
+.customerDetails input[type="email"],
+.customerDetails input[type="date"] {
+  width: 95%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect */
+.customerDetails input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.15);
+}
+
+/* Gender radio buttons */
+.customerDetails fieldset legend {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.customerDetails fieldset label input[type="radio"] {
+  margin-right: 6px;
+}
+
+.customerDetails fieldset label {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+/* Submit button */
+.customerDetails button {
+  grid-column: span 2;
+  padding: 12px 20px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  background-color: rgb(84, 2, 84);
+}
+
+/* Button hover & active */
+.customerDetails button:hover {
+  background-color: purple;
+}
+
+.customerDetails button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .customerDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .customerDetails button {
+    grid-column: span 1;
+  }
+  .customerDetails{
+    max-width: 500px;
+  }
+}

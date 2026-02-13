@@ -1,0 +1,63 @@
+/* Page title */
+.customer-details-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.homeLink{
+  text-decoration: none;
+  padding: 20px;
+  font-weight: bold;
+  color: black;
+}
+.homeLink:hover{
+  color: purple;
+  text-decoration: underline;
+}
+
+.customerDetails-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Button container */
+.customer-actions {
+  display: flex;
+  justify-content: right;
+  gap: 15px;
+  margin: 10px;
+}
+
+/* Buttons */
+.customer-actions button {
+  background-color: white; /* Purple */
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effect */
+.customer-actions button:hover {
+  color: purple;
+  text-decoration: underline;
+  background-color: white;
+}
+
+/* Active button */
+.customer-actions button.active {
+  transform: translateX(5px);
+  font-weight: 800;
+  color: white;
+  background-color: rgba(84, 2, 84, 0.861);
+  box-shadow: 0 6px 12px rgba(108, 0, 130, 0.3);
+}
+.customer-actions button.active:hover{
+  color: white;
+  text-decoration: none;
+}

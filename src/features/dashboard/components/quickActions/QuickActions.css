@@ -1,0 +1,18 @@
+.quick-actions{
+    display: flex;
+    justify-content: space-between;
+}
+.quick-actions button{
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px 0.2px gray;
+    padding: 20px;
+    width: 22%;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    background-color: rgb(114, 1, 114);
+}
+.quick-actions button:hover{
+    background-color: rgb(77, 1, 77);
+}

@@ -1,0 +1,19 @@
+.dashboard_header{
+    text-align: center;
+    padding: 10px;
+    box-shadow: 1px 0px 2px 0px rgb(164, 164, 164);
+    background-color: rgb(114, 1, 114);
+    color: white;
+}
+.dashboard_maindiv{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.dashboard_maindiv section{
+    margin-bottom: 30px;
+}
+.quick-Actions-section{
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0.5px 3px 0px rgb(187, 185, 185);
+}
