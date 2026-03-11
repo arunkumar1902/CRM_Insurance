@@ -1,19 +1,15 @@
-export const calculateUpcomingRenewals = (customerDetails) => {
-    return customerDetails.flatMap(customer => (
-        customer.policies.filter(data => {
-            const dueDate = new Date(data.dueDate);
+export const calculateUpcomingRenewals = (policyDetails) => {
+    return policyDetails.filter(data => {
+            const renewalDate = new Date(data.renewal_date);
             return (
-                data.renewalStatus === "Pending" &&
-                dueDate.getMonth() === new Date().getMonth() &&
-                dueDate.getFullYear() === new Date().getFullYear()
+                renewalDate.getMonth() === new Date().getMonth() &&
+                renewalDate.getFullYear() === new Date().getFullYear()
             );
         }).map(policy => ({
-            "customerName": customer.personalDetails.customerName,
-            "policyType": policy.policyType,
-            "policyNumber": policy.policyNumber,
-            "endDate": policy.endDate,
-            "daysLeft": Math.ceil((new Date(policy.dueDate) - new Date()) / (1000 * 60 * 60 * 24)),
+            "customerName": policy.customer_name,
+            "policyType": policy.policy_type,
+            "policyNumber": policy.policy_number,
+            "renewalDate": policy.renewal_date,
+            "daysLeft": Math.ceil((new Date(policy.renewal_date) - new Date()) / (1000 * 60 * 60 * 24)),
         }))
-    ));
-
 }

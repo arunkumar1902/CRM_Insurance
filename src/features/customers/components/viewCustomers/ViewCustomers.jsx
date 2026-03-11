@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../../dashboard/components/upcomingRenewals/UpcomingRenewals.css'
+import '../viewCustomers/ViewCustomers.css'
 import axios from 'axios';
 
 export default function ViewCustomers() {
@@ -12,13 +12,17 @@ export default function ViewCustomers() {
 
   const fetchCustomerDetails = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/customers");
+      const response = await axios.get("http://127.0.0.1:8080/user_details/");
       setCustomerDetails(response.data);
     }
     catch (error) {
       console.log(`Error : ${error}`);
       alert("Error Occured to fetch customer details");
     }
+  }
+
+  const handleViewCustomer = ()=>{
+
   }
 
   return (
@@ -38,10 +42,8 @@ export default function ViewCustomers() {
                   <th>Customer ID</th>
                   <th>Customer Name</th>
                   <th>Contact</th>
-                  <th>Policy Type </th>
-                  <th>Policy Number </th>
-                  <th>End Date </th>
-                  <th>Policy Status </th>
+                  <th>Status </th>
+                  <th>Details</th>
                 </tr>
               </thead>
 
@@ -50,13 +52,11 @@ export default function ViewCustomers() {
                   return (
                     <tr key={index}>
                       <td>{index + 1}</td>
-                      <td>{data.customerID}</td>
-                      <td>{data.personalDetails.customerName}</td>
-                      <td>{data.personalDetails.phone}</td>
-                      <td>{data.policyType}</td>
-                      <td>{data.policyNumber}</td>
-                      <td>{data.endDate}</td>
-                      <td>{data.daysLeft}</td>
+                      <td>{data.customer_id}</td>
+                      <td>{data.personal_details.customer_name}</td>
+                      <td>{data.personal_details.phone}</td>
+                      <td>{data.status}</td>
+                      <td><button onClick={()=>handleViewCustomer(data.customer_id)}>View</button></td>
                     </tr>
                   )
                 })}

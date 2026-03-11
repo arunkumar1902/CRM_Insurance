@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 export default function QuickActions() {
 
     const navigate = useNavigate();
-    const handleQuickAction = (data)=>{
-        navigate('/CustomerDetails', {state:{action : data}});
+    const handleQuickAction = (action)=>{
+        navigate(`/customer-details/${action}`);
     }
     return (
         <>
@@ -15,9 +15,9 @@ export default function QuickActions() {
 
             <div className='quick-actions'>
                 <button onClick={()=>handleQuickAction("addNewCustomer")}>+ Add New Customer</button>
-                <button onClick={()=>handleQuickAction("addPolicy")}>+ Add Policy</button>
+                <button onClick={()=>handleQuickAction("addPolicy")}>+ Add New Policy</button>
                 <button onClick={()=>handleQuickAction("UpdateCustomer")}>+ Update Customer</button>
-                <button onClick={()=>handleQuickAction("veiwCustomers")}>View Customers</button>
+                <button onClick={()=>handleQuickAction("viewCustomers")}>View Customers</button>
             </div>
         </>
     )

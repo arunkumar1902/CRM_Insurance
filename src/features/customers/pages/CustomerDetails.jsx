@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import React from 'react'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import '../pages/CustomerDetails.css'
-import AddNewCustomer from '../components/AddNewCustomer';
-import AddPolicy from '../components/AddPolicy';
-import UpdateCustomer from '../components/UpdateCustomer';
-import ViewCustomers from '../components/ViewCustomers';
+import AddNewCustomer from '../components/addNewCustomer/AddNewCustomer';
+import AddPolicy from '../components/addPolicy/AddPolicy';
+import UpdateCustomer from '../components/updateCustomer/UpdateCustomer';
+import ViewCustomers from '../components/viewCustomers/ViewCustomers';
 
 export default function CustomerDetails() {
-  const location = useLocation();
+  const {action} = useParams();
   let display;
-  const [action, setAction] = useState(location.state?.action);
 
   switch (action) {
     case "addNewCustomer": 
@@ -25,20 +24,14 @@ export default function CustomerDetails() {
       display = <ViewCustomers />;
       break;
     default: 
-      setAction("viewCustomers");
+      return <Navigate to="/customer-details/viewCustomers" replace/>
   }
 
   return (
     <>
       <div className='customerDetails-header'>
         <Link to='/' className='homeLink'>Home</Link>
-
-        <section className='customer-actions'>
-          <button className={action === 'addNewCustomer'?'active':''} onClick={()=>setAction("addNewCustomer")}>Add New Customer</button>
-          <button className={action === 'addPolicy'?'active':''} onClick={()=>setAction("addPolicy")}>Add Policy</button>
-          <button className={action === 'UpdateCustomer'?'active':''} onClick={()=>setAction("UpdateCustomer")}>Update Customer</button>
-          <button className={action === 'viewCustomers'?'active':''} onClick={()=>setAction("viewCustomers")}>View Customer</button>
-        </section>
+        <h3>{(action ??"").replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase()).trim()}</h3>
       </div>
 
       <hr />

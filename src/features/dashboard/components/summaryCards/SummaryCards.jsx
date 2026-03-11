@@ -6,23 +6,36 @@ import { calculateActivePolicyCount, calculatePendingRemindersCount, calculateRe
 
 export default function SummaryCards() {
     const [customersDetail, setCustomersDetail] = useState([]);
+    const [policyDetail, setPolicyDetail] = useState([]);
     
     useEffect(()=>{
         fetchCustomersDetail();
+        fetchPolicyDetail();
     },[]);
 
     const fetchCustomersDetail = async()=>{
         try {
-            const response = await axios.get("http://localhost:3000/customers");
+            const response = await axios.get("http://127.0.0.1:8080/user_details/");
             setCustomersDetail(response.data);
         } catch (error) {
-            console.log(error);            
+            console.log(error);           
+            alert("Error Occured to fetch customer details");
         }
     }
 
-    const activePolicyCount = calculateActivePolicyCount(customersDetail)
-    const renewalsThisMonthCount = calculateRenewalsThisMonth(customersDetail)
-    const pendingRemindersCount = calculatePendingRemindersCount(customersDetail)   
+        const fetchPolicyDetail = async()=>{
+        try {
+            const response = await axios.get("http://127.0.0.1:8080/policy_details/");
+            setPolicyDetail(response.data);
+        } catch (error) {
+            console.log(error); 
+            alert("Error Occured to fetch policy details");
+        }
+    }
+
+    const activePolicyCount = calculateActivePolicyCount(policyDetail)
+    const renewalsThisMonthCount = calculateRenewalsThisMonth(policyDetail)
+    const pendingRemindersCount = calculatePendingRemindersCount(policyDetail)   
 
     return (
         <>

@@ -4,16 +4,16 @@ import axios from 'axios';
 import { calculateUpcomingRenewals } from '../../utils/upcomingRenewals';
 
 export default function UpcomingRenewals() {
-    const [customerDetails, setCustomerDetails] = useState([]);
+    const [policyDetails, setPolicyDetails] = useState([]);
 
     useEffect(() => {
-        fetchCustomerDetails();
+        fetchPolicyDetails();
     }, []);
 
-    const fetchCustomerDetails = async () => {
+    const fetchPolicyDetails = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/customers");
-            setCustomerDetails(response.data);
+            const response = await axios.get("http://127.0.0.1:8080/policy_details/");
+            setPolicyDetails(response.data);
         }
         catch (error) {
             console.log(`Error : ${error}`);
@@ -21,7 +21,7 @@ export default function UpcomingRenewals() {
         }
     }
 
-    const upcomingRenewalsThisMonth = calculateUpcomingRenewals(customerDetails);
+    const upcomingRenewalsThisMonth = calculateUpcomingRenewals(policyDetails);
 
     return (
         <>
@@ -39,7 +39,7 @@ export default function UpcomingRenewals() {
                                     <th>Customer </th>
                                     <th>Policy Type </th>
                                     <th>Policy Number </th>
-                                    <th>End Date </th>
+                                    <th>Renewal Date </th>
                                     <th>Days Left </th>
                                     <th>Action</th>
                                 </tr>
@@ -52,7 +52,7 @@ export default function UpcomingRenewals() {
                                             <td>{data.customerName}</td>
                                             <td>{data.policyType}</td>
                                             <td>{data.policyNumber}</td>
-                                            <td>{data.endDate}</td>
+                                            <td>{data.renewalDate}</td>
                                             <td>{data.daysLeft}</td>
                                             <td><button>Notify</button></td>
                                         </tr>

@@ -1,27 +1,17 @@
-export const calculateActivePolicyCount = (customersDetail)=>{
-    return customersDetail.reduce((init, customer)=>{
-        const activeCount = customer.policies.filter((data)=> data.status === "Active");
-        return init + activeCount.length;
-    }, 0);
+export const calculateActivePolicyCount = (policyDetail)=>{
+    return policyDetail.filter((data)=> data.status === "Active").length;
 }
 
-export const calculateRenewalsThisMonth = (customersDetail)=>{
-    return customersDetail.reduce((init, customer) =>{
-        const pendingRenewals = customer.policies.filter(data => {
-            const dueDate = new Date(data.dueDate);
+export const calculateRenewalsThisMonth = (policyDetail)=>{
+    return policyDetail.filter(data => {
+            const renewalDate = new Date(data.renewal_date);
             return(
-                data.renewalStatus ===  "Pending" &&
-                dueDate.getMonth() === new Date().getMonth() &&
-                dueDate.getFullYear() === new Date().getFullYear()
+                renewalDate.getMonth() === new Date().getMonth() &&
+                renewalDate.getFullYear() === new Date().getFullYear()
             );
-        });
-        return init + pendingRenewals.length;
-    }, 0);
+        }).length;
 }
 
-export const calculatePendingRemindersCount = (customersDetail)=>{
-    return customersDetail.reduce((init, customer)=>{
-        const reminders = customer.policies.filter(data => data.reminderSent === false);
-        return init + reminders.length;
-    }, 0);
+export const calculatePendingRemindersCount = (policyDetail)=>{
+    return policyDetail.filter(data => data.reminder_sent === false).length;
 }

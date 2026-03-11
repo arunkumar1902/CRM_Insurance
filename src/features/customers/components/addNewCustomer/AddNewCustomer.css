@@ -90,6 +90,61 @@
   transform: scale(0.98);
 }
 
+/* dialog box */
+/* Full-screen overlay to block background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* dim background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* above all content */
+}
+
+/* Modal box itself */
+.customer-added-dialogue-box {
+  background-color: #f0fff0; /* light green */
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  padding: 25px 30px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.customer-added-dialogue-box p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #2e7d32;
+}
+
+.customer-added-dialogue-box button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.customer-added-dialogue-box button:hover {
+  background-color: #388e3c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 /* Responsive layout */
 @media (max-width: 768px) {
   .customerDetails {

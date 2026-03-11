@@ -8,7 +8,7 @@ export default function AppRoute(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element = {<Dashboard></Dashboard>}></Route>
-                    <Route path="/customerDetails" element={<CustomerDetails></CustomerDetails>}></Route>
+                    <Route path="/customer-details/:action" element={<CustomerDetails></CustomerDetails>}></Route>
                 </Routes>
             </BrowserRouter>
         </>
