@@ -7,12 +7,12 @@
     cursor: pointer;
     box-shadow: 0px 0px 0px 0.2px gray;
     padding: 20px;
-    width: 22%;
+    width: 30%;
     border-radius: 10px;
     text-align: center;
     color: white;
-    background-color: rgb(114, 1, 114);
+    background-color: rgba(77, 1, 77, 0.899);
 }
 .quick-actions button:hover{
-    background-color: rgb(77, 1, 77);
+    background-color: rgb(75, 32, 75);
 }

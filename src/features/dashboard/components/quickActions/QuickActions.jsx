@@ -10,13 +10,13 @@ export default function QuickActions() {
     }
     return (
         <>
-            <h4>Quick Actions</h4>
+            <h3>Quick Actions</h3>
             <br />
 
             <div className='quick-actions'>
                 <button onClick={()=>handleQuickAction("addNewCustomer")}>+ Add New Customer</button>
                 <button onClick={()=>handleQuickAction("addPolicy")}>+ Add New Policy</button>
-                <button onClick={()=>handleQuickAction("UpdateCustomer")}>+ Update Customer</button>
+                {/* <button onClick={()=>handleQuickAction("UpdateCustomer")}>+ Update Customer</button> */}
                 <button onClick={()=>handleQuickAction("viewCustomers")}>View Customers</button>
             </div>
         </>

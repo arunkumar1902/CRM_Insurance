@@ -1,9 +1,9 @@
-export default function CustomerForm({newCustomer, handleChange, handleSubmit}) {
+export default function CustomerForm({newCustomer, handleChange, handleSubmit, formErrors}) {
     return(
     <>
         <h2 style={{textAlign:"center", paddingTop:"20px"}}>Enter the Customer details</h2>
         
-        <form onSubmit={handleSubmit} className='customerDetails'>
+        <form onSubmit={handleSubmit} className='customerDetails' noValidate>
             <div>
                 <h3>Personal Details : </h3>
 
@@ -18,6 +18,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.customer_name &&
+                        <span style={{color:"red"}}>{formErrors.customer_name}</span>
+                    }
                 </fieldset>
 
                 <fieldset>
@@ -30,6 +33,7 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                             value='male'
                             checked={newCustomer.personal_details.gender === "male"}
                             onChange={handleChange}
+                            required
                         />
                         Male
                     </label>
@@ -67,6 +71,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.date_of_birth &&
+                        <span style={{color:"red"}}>{formErrors.date_of_birth}</span>
+                    }
                 </fieldset>
 
                 <fieldset>
@@ -80,12 +87,15 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.email &&
+                        <span style={{color:"red"}}>{formErrors.email}</span>
+                    }
                 </fieldset>
 
                 <fieldset>
                     <label htmlFor="phone">Phone</label>
                     <input
-                        type='text'
+                        type='tel'
                         name="personal_details.phone"
                         id="phone"
                         placeholder='Enter Customer Phone'
@@ -93,6 +103,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.phone &&
+                        <span style={{color:"red"}}>{formErrors.phone}</span>
+                    }
                 </fieldset>
             </div>
 
@@ -110,6 +123,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.street &&
+                        <span style={{color:"red"}}>{formErrors.street}</span>
+                    }
                 </fieldset>
 
                 <fieldset>
@@ -123,6 +139,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.city &&
+                        <span style={{color:"red"}}>{formErrors.city}</span>
+                    }
                 </fieldset>
 
                 <fieldset>
@@ -136,6 +155,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.state &&
+                        <span style={{color:"red"}}>{formErrors.state}</span>
+                    }
                 </fieldset>
 
                 <fieldset>
@@ -149,6 +171,9 @@ export default function CustomerForm({newCustomer, handleChange, handleSubmit}) 
                         onChange={handleChange}
                         required
                     />
+                    {formErrors.pincode &&
+                        <span style={{color:"red"}}>{formErrors.pincode}</span>
+                    }
                 </fieldset>
 
             </div>

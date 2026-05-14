@@ -17,9 +17,9 @@ export default function CustomerDetails() {
     case "addPolicy": 
       display = <AddPolicy />;
       break;
-    case "UpdateCustomer": 
-      display = <UpdateCustomer />;
-      break;
+    // case "UpdateCustomer": 
+    //   display = <UpdateCustomer />;
+    //   break;
     case "viewCustomers": 
       display = <ViewCustomers />;
       break;
@@ -33,8 +33,6 @@ export default function CustomerDetails() {
         <Link to='/' className='homeLink'>Home</Link>
         <h3>{(action ??"").replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase()).trim()}</h3>
       </div>
-
-      <hr />
 
       <div>{display}</div>
     </>

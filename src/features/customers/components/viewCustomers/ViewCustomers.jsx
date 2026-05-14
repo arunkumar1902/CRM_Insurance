@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import '../viewCustomers/ViewCustomers.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function ViewCustomers() {
 
   const [customerDetails, setCustomerDetails] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCustomerDetails();
@@ -21,17 +23,17 @@ export default function ViewCustomers() {
     }
   }
 
-  const handleViewCustomer = ()=>{
-
+  const handleViewCustomer = (id)=>{
+    navigate(`/individual_customer/${id}`);
   }
 
   return (
     <>
-      <div className='upcoming_policy_renewals'>
+      <div className='customerDetails_container'>
         <h2>Customer Details :</h2>
         <br />
 
-        <section className='renewal_table'>
+        <section className='customerTable'>
           {customerDetails.length > 0
             ?
             <table>

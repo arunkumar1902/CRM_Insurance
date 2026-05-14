@@ -26,7 +26,7 @@ export default function UpcomingRenewals() {
     return (
         <>
             <div className='upcoming_policy_renewals'>
-                <h2>Upcoming Policy Renewals</h2>
+                <h3>Upcoming Policy Renewals</h3>
                 <br />
 
                 <section className='renewal_table'>

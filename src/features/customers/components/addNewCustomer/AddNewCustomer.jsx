@@ -21,7 +21,7 @@ export default function AddNewCustomer() {
     }
   });
 
-  const [formErrors, setFormErrors] = useState([]);
+  const [formErrors, setFormErrors] = useState({});
 
   const [customerAdded, setCustomerAdded] = useState(false);
 
@@ -70,8 +70,18 @@ export default function AddNewCustomer() {
       }
     } catch (error) {
       console.log("Error : ", error);
-      alert("Error in adding new customer, Pls try again");
+      if(error.response?.data?.detail){
+        const backendError = error.response.data.detail;
 
+        let errorObj = {};
+
+        backendError.forEach((err)=>{
+          let field = err.loc[2];
+          errorObj[field] = err.msg.split(",").pop();
+        });
+
+        setFormErrors(errorObj);
+      }
       
     }
   }
@@ -87,6 +97,7 @@ export default function AddNewCustomer() {
         newCustomer = {newCustomer}
         handleChange = {handleChange}
         handleSubmit = {handleSubmit}
+        formErrors = {formErrors}
      ></CustomerForm>
 
      {customerAdded && 

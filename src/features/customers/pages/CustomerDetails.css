@@ -1,24 +1,17 @@
-/* Page title */
-.customer-details-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 20px 0;
-  text-align: center;
-}
-
 .homeLink{
   text-decoration: none;
-  padding: 20px;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 .homeLink:hover{
-  color: purple;
   text-decoration: underline;
 }
 
 .customerDetails-header{
+  color: white;
+  padding: 13px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: rgba(77, 1, 77, 0.899);
 }

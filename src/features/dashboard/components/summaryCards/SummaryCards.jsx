@@ -63,7 +63,7 @@ export default function SummaryCards() {
 
                 <article className='individual_cards'>
                     <aside className='card_context'>
-                        <h4>Policies Reviewing This Month</h4>
+                        <h4>Policies Renewing This Month</h4>
                         <p>{renewalsThisMonthCount}</p>
                     </aside>
                     <aside className='logo'>

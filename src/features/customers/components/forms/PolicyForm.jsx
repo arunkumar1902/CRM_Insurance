@@ -1,7 +1,7 @@
-export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyData, handlePolicyDataSubmit}){
+export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyData, handlePolicyDataSubmit, formErrors}){
     return(
         <>
-            <form onSubmit={handlePolicyDataSubmit}>
+            <form onSubmit={handlePolicyDataSubmit} noValidate>
 
             <fieldset>
               <label htmlFor="policy_type">Policy Type</label>
@@ -14,6 +14,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.policy_type && 
+                <span style={{color:"red"}}>{formErrors.policy_type}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -27,6 +30,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.provider && 
+                <span style={{color:"red"}}>{formErrors.provider}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -40,6 +46,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.premium_amount && 
+                <span style={{color:"red"}}>{formErrors.premium_amount}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -64,6 +73,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.sum_assured && 
+                <span style={{color:"red"}}>{formErrors.sum_assured}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -89,6 +101,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.start_date && 
+                <span style={{color:"red"}}>{formErrors.start_date}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -102,6 +117,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.end_date && 
+                <span style={{color:"red"}}>{formErrors.end_date}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -115,6 +133,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.renewal_date && 
+                <span style={{color:"red"}}>{formErrors.renewal_date}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -138,6 +159,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.nominee_name && 
+                <span style={{color:"red"}}>{formErrors.nominee_name}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -151,6 +175,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.nominee_relationship && 
+                <span style={{color:"red"}}>{formErrors.nominee_relationship}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -164,6 +191,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.nominee_phone && 
+                <span style={{color:"red"}}>{formErrors.nominee_phone}</span>
+              }
             </fieldset>
 
             <fieldset>
@@ -177,6 +207,9 @@ export default function PolicyForm({policyData, setShowPolicyForm, handlePolicyD
                 onChange={handlePolicyData} 
                 required
               />
+              {formErrors.customer_notes && 
+                <span style={{color:"red"}}>{formErrors.customer_notes}</span>
+              }
             </fieldset>
 
             <button type='submit'>Submit</button>

@@ -10,6 +10,7 @@ export default function AddPolicy() {
   const [selectedCustomer, setSelectedCustomer] = useState(null); // for storing only the selected customer
   const [showPolicyForm, setShowPolicyForm] = useState(false); // to display policy form
   const [customerEmail, setCustomerEmail] = useState(""); // store customer email
+  const [formErrors, setFormErrors] = useState({});
   const [policyData, setPolicyData] = useState({
     policy_type:'',
     provider:'',
@@ -87,7 +88,16 @@ export default function AddPolicy() {
       navigate("/");
     } catch (error) {
       console.log("Error in submitting new policy", error);
-      alert("Error in submitting new policy")
+      if(error.response?.data?.detail){
+        const backendError = error.response.data.detail;
+
+        let errorObj = {};
+        backendError.forEach((err)=>{
+          let Field = err.loc[1];
+          errorObj[Field] = err.msg.split(",").pop();
+        });
+        setFormErrors(errorObj);
+      }
     }
   }
 
@@ -117,6 +127,7 @@ export default function AddPolicy() {
             setShowPolicyForm = {setShowPolicyForm}
             handlePolicyData = {handlePolicyData}
             handlePolicyDataSubmit = {handlePolicyDataSubmit}
+            formErrors={formErrors}
           ></PolicyForm>
         </div>
       }
